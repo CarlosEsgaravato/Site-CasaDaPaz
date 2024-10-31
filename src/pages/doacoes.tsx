@@ -97,7 +97,7 @@ export default function Doacoes() {
           </Text>
           <DonationDetails>
             <QrCodeContainer>
-              <QrCodeImage src="/imagens/qrcode.jpeg" alt="QR Code para doação via PIX" />
+              <QrCodeImage src="/imagens/qrcode.png" alt="QR Code para doação via PIX" />
             </QrCodeContainer>
             <CenteredText><strong>Chave PIX:</strong> 05.509.404/0001-29</CenteredText>
           </DonationDetails>

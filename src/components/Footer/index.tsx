@@ -5,7 +5,7 @@ import { FooterContainer } from './style';
 const Footer = () => {
   return (
     <FooterContainer>
-      Desenvolvido em parceria com a Faculdade ALFA Umuarama, Curso de Sistemas para Internet
+      Desenvolvido em parceria com a Faculdade ALFA Umuarama, Curso de Sistemas para Internet.
     </FooterContainer>
   );
 };

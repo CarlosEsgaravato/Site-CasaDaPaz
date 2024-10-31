@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from "react"
-import { LeftContainer, NavbarContainer, NavbarInnerContainer, NavbarLink, NavbarLinkContainer, NavbarLinkExtended, RightContainer } from "./style"
+import { LeftContainer, NavbarContainer, NavbarInnerContainer, NavbarLink, NavbarLinkContainer, NavbarLinkExtended, CenterContainer, RightContainer, Logo, DonationButton } from "./style"
 import axios, { AxiosError } from "axios"
 
 interface ICategoria {
@@ -29,25 +29,23 @@ export const Menu = () => {
       <NavbarContainer>
         <NavbarInnerContainer>
           <LeftContainer>
-            <NavbarLinkExtended
-              href={"/"}
-              style={{
-                color: '#fff',
-              }}
-            >
+            <NavbarLinkExtended href={"/"}>
+              <Logo src="/imagens/logo.png" alt="Logo" />
               Casa da Paz
             </NavbarLinkExtended>
           </LeftContainer>
-          <RightContainer>
+          <CenterContainer>
             <NavbarLinkContainer>
               <NavbarLink href={"/"}>Início</NavbarLink>
               <NavbarLink href={"/sobre-nos"}>Sobre Nós</NavbarLink>
-              <NavbarLink href={"/doacoes"}>Doações</NavbarLink>
               <NavbarLink href={"/bazar"}>Bazar</NavbarLink>
               <NavbarLink href={"/voluntarios"}>Voluntários</NavbarLink>
               <NavbarLink href={"/galeria"}>Galeria</NavbarLink>
               <NavbarLink href={"/contato"}>Contato</NavbarLink>
             </NavbarLinkContainer>
+          </CenterContainer>
+          <RightContainer>
+            <DonationButton href={"/doacoes"}>Doações</DonationButton>
           </RightContainer>
         </NavbarInnerContainer>
       </NavbarContainer>

@@ -1,7 +1,17 @@
+'use client'
 import { Menu } from "@/components/Menu";
 import styled from "styled-components";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "@/components/Footer";
+
+const PageContainer = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f0f0f0; /* Fundo mais claro */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const Section = styled.div`
   padding: 40px 6%;
@@ -11,6 +21,10 @@ const Section = styled.div`
 
 const Content = styled.div`
   max-width: 800px;
+  background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
+  padding: 40px;
+  border-radius: 8px;
+  margin: 20px;
   text-align: left;
 `;
 
@@ -35,29 +49,21 @@ const ContactLink = styled.a`
   }
 `;
 
-const BannerContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
-`;
-
 const BannerImage = styled.img`
-  max-width: 800px;
+  max-width: 100%;
   width: 100%;
   height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px; /* Espaço entre a imagem e o texto */
 `;
 
 export default function Contato() {
   return (
-    <>
+    <PageContainer>
       <Menu />
-      <br />
-      <BannerContainer>
-        <BannerImage src="/imagens/fotocasadapaz.jpeg" alt="Banner de Contato" />
-      </BannerContainer>
       <Section>
         <Content>
+          <BannerImage src="/imagens/fotocasadapaz.jpeg" alt="Banner de Contato" />
           <Title>Contato</Title>
           <Text><strong>Telefone/WhatsApp:</strong> (44) 99976-0543</Text>
           <Text><strong>Instagram Casa da Paz:</strong> <ContactLink href="https://www.instagram.com/casadapaz_umuarama" target="_blank">@casadapaz_umuarama</ContactLink></Text>
@@ -69,6 +75,6 @@ export default function Contato() {
         </Content>
       </Section>
       <Footer />
-    </>
+    </PageContainer>
   );
 }

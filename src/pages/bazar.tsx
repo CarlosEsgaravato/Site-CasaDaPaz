@@ -1,7 +1,17 @@
+'use client'
 import { Menu } from "@/components/Menu";
 import styled from "styled-components";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "@/components/Footer";
+
+const PageContainer = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f0f0f0; /* Fundo mais claro */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const Section = styled.div`
   padding: 40px 6%;
@@ -11,6 +21,10 @@ const Section = styled.div`
 
 const Content = styled.div`
   max-width: 800px;
+  background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
+  padding: 40px;
+  border-radius: 8px;
+  margin: 20px;
   text-align: left;
 `;
 
@@ -24,39 +38,31 @@ const Subtitle = styled.h3`
   color: #89b72d;
   margin-top: 30px;
   margin-bottom: 10px;
+  text-align: center;
 `;
 
 const Text = styled.p`
   color: #333;
   line-height: 1.6;
   margin-bottom: 20px;
+  text-align: justify;
 `;
 
-const BannerContainer = styled.div`
+const BannerImage = styled.img`
+  max-width: 100%;
   width: 100%;
-  height: 300px;
-  background-image: url('/imagens/bazar.jpg');
-  background-color: #e0e0e0; /* Placeholder for the banner image */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 40px;
-`;
-
-const BannerText = styled.h3`
-  color: #333;
-  font-size: 24px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px; /* Espaço entre a imagem e o texto */
 `;
 
 export default function Bazar() {
   return (
-    <>
+    <PageContainer>
       <Menu />
-        <BannerContainer>
-        </BannerContainer>
       <Section>
         <Content>
-          
+          <BannerImage src="/imagens/bazar1.jpg" alt="Banner do Bazar" />
           <Title>Bazar Permanente Beneficente</Title>
           <Text>
             A Casa da Paz organiza um Bazar Permanente Beneficente como uma das formas de arrecadar fundos para apoiar nossos programas e serviços. Em nosso bazar, você encontrará uma variedade de itens novos e usados, incluindo roupas, acessórios, livros, brinquedos e muito mais, tudo a preços acessíveis.
@@ -75,6 +81,6 @@ export default function Bazar() {
         </Content>
       </Section>
       <Footer />
-    </>
+    </PageContainer>
   );
 }
