@@ -1,6 +1,7 @@
 import { Menu } from "@/components/Menu";
 import styled from "styled-components";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from "@/components/Footer";
 
 const Section = styled.div`
   padding: 40px 6%;
@@ -116,6 +117,7 @@ export default function Doacoes() {
           </Text>
         </Content>
       </Section>
+      <Footer />
     </>
   );
 }

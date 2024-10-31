@@ -1,6 +1,7 @@
 import { Menu } from "@/components/Menu";
 import styled from "styled-components";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from "@/components/Footer";
 
 const Section = styled.div`
   padding: 40px 6%;
@@ -10,7 +11,7 @@ const Section = styled.div`
 
 const Content = styled.div`
   max-width: 800px;
-  text-align: left;
+  text-align: justify;
 `;
 
 const Title = styled.h2`
@@ -79,6 +80,7 @@ export default function SobreNos() {
           </ImageContainer>
         </Content>
       </Section>
+      <Footer />
     </>
   );
 }

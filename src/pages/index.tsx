@@ -2,6 +2,7 @@
 import { Menu } from "@/components/Menu";
 import styled from "styled-components";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from "@/components/Footer";
 
 const Banner = styled.div`
   width: 100%;
@@ -77,6 +78,7 @@ export default function Home() {
           <DonationButton href="/doacoes">Faça uma Doação</DonationButton>
         </DonationHighlight>
       </Section>
+      <Footer />
     </>
   );
 }
