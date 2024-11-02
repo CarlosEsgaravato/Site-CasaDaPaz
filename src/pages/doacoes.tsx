@@ -3,6 +3,15 @@ import styled from "styled-components";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "@/components/Footer";
 
+const PageContainer = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const Section = styled.div`
   padding: 40px 6%;
   display: flex;
@@ -74,13 +83,44 @@ const ContactLink = styled.a`
   }
 `;
 
+const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+`;
+
+const DonationImage = styled.img`
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 20px;
+`;
+
+const ImageTextContainer = styled.div`
+  max-width: 400px;
+`;
+
+const ImageText = styled.p`
+  color: #333;
+  line-height: 1.6;
+`;
+
 export default function Doacoes() {
   return (
-    <>
+    <PageContainer>
       <Menu />
       <Section>
         <Content>
-          <Title>Doações</Title>
+          <ImageContainer>
+            <DonationImage src="/imagens/doacao.jpg" alt="Importância da Doação" />
+            <ImageTextContainer>
+              <ImageText>
+                As doações são essenciais para a Casa da Paz. Elas nos permitem oferecer um ambiente seguro e acolhedor para nossas crianças e adolescentes, proporcionando oportunidades de aprendizado, apoio psicossocial e atividades enriquecedoras. Com sua ajuda, podemos garantir que cada jovem tenha as ferramentas necessárias para crescer com dignidade e esperança.
+              </ImageText>
+            </ImageTextContainer>
+          </ImageContainer>
+          <Title>Faça sua Doação</Title>
           <Quote>“Deve-se doar com a alma livre, simples, apenas por amor, espontaneamente!” – Martinho Lutero</Quote>
           <Text>
             Você pode ajudar a Casa da Paz com sua doação por depósito ou transferência bancária. Contribua com qualquer valor para:
@@ -118,6 +158,6 @@ export default function Doacoes() {
         </Content>
       </Section>
       <Footer />
-    </>
+    </PageContainer>
   );
 }

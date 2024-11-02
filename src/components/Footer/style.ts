@@ -11,3 +11,17 @@ export const FooterContainer = styled.footer`
   bottom: 0;
   margin-top: auto;
 `;
+
+export const IconLink = styled.a`
+  color: #89b72d;
+  margin: 0 10px;
+  text-decoration: none;
+
+  &:hover {
+    color: #ff6347;
+  }
+`;
+
+export const BootstrapIcon = styled.i`
+  font-size: 32px;
+`;
