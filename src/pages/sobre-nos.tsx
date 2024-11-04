@@ -59,6 +59,29 @@ const MissionImage = styled.img`
   margin-top: 20px;
 `;
 
+const AwardSection = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+`;
+
+const AwardImage = styled.img`
+  max-width: 200px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 20px;
+`;
+
+const AwardText = styled.p`
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+`;
+
 export default function SobreNos() {
   return (
     <PageContainer>
@@ -72,6 +95,7 @@ export default function SobreNos() {
           <Text>
             Nosso objetivo é proporcionar um ambiente seguro e acolhedor, onde cada jovem possa ter acesso a oportunidades de aprendizado, apoio psicossocial e atividades enriquecedoras. Trabalhamos para oferecer um futuro melhor, garantindo que nossas crianças e adolescentes tenham as ferramentas necessárias para crescer com dignidade e esperança.
           </Text>
+          <Subtitle>Missão | Visão | Valores</Subtitle>
           <ImageContainer>
             <MissionImage src="/imagens/missao.png" alt="Missão, Visão e Valores" />
           </ImageContainer>
@@ -90,7 +114,13 @@ export default function SobreNos() {
           <Text>
             Com grande empenho, construímos nossa sede própria de 400 m² em dois pisos, em um terreno de 800 m² doado pelo poder público municipal, já devidamente escriturado em nome da Casa da Paz. Com a nova estrutura, aprimoramos a qualidade dos nossos serviços de convivência e fortalecimento de vínculos para crianças, adolescentes e suas famílias.
           </Text>
-          
+          <Subtitle>Somos certificados!</Subtitle>
+          <AwardSection>
+            <AwardImage src="/imagens/premio1.png" alt="Prêmio Impulso de Boas Práticas" />
+            <AwardText>
+              Em 2022, a Casa da Paz foi premiada com o Prêmio Impulso de Boas Práticas na categoria Gestão. Este reconhecimento destaca nosso compromisso com a excelência e a dedicação em oferecer o melhor para nossas crianças e adolescentes.
+            </AwardText>
+          </AwardSection>
         </Content>
       </Section>
       <Footer />
