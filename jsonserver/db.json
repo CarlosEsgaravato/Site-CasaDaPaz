@@ -18,5 +18,14 @@
             "promo": 79.90,
             "imagem": "pendrives/pendrive1g.jpg"
         }
+    ],
+    "voluntarios": [
+        { "id": 1, "cargo": "Motorista" },
+        { "id": 2, "cargo": "Cozinheiro" },
+        { "id": 3, "cargo": "Professor de Matemática" },
+        { "id": 4, "cargo": "Professor de Artes" },
+        { "id": 5, "cargo": "Assistente Social" },
+        { "id": 6, "cargo": "Ajudante de Limpeza" }
     ]
+    
 }

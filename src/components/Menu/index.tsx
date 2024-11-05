@@ -12,17 +12,17 @@ export const Menu = () => {
 
   const [categorias, setCategorias] = useState<Array<ICategoria>>([]);
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    axios.get('http://localhost:3001/categorias')
-      .then((resposta) => {
-        setCategorias(resposta.data)
-      })
-      .catch((err: AxiosError) => {
-        console.log(err)
-      })
+  //   axios.get('http://localhost:3001/categorias')
+  //     .then((resposta) => {
+  //       setCategorias(resposta.data)
+  //     })
+  //     .catch((err: AxiosError) => {
+  //       console.log(err)
+  //     })
 
-  }, [])
+  // }, [])
 
   return (
     <>

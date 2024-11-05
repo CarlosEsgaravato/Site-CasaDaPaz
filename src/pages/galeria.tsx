@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { SetStateAction, useState } from "react";
 import { Menu } from "@/components/Menu";
 import styled from "styled-components";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -26,36 +26,35 @@ const Title = styled.h2`
   text-align: center;
 `;
 
-const AlbumContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+const GalleryContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
-`;
-
-const AlbumCard = styled.div`
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  width: 300px;
-  cursor: pointer;
-  text-align: center;
-`;
-
-const AlbumImage = styled.img`
   width: 100%;
-  height: 200px;
+  max-width: 1200px;
+`;
+
+const GalleryImageContainer = styled.div`
+  width: 100%;
+  padding-top: 75%; /* Aspect ratio 4:3 */
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+`;
+
+const GalleryImage = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 `;
 
-const AlbumTitle = styled.h3`
-  color: #333;
-  padding: 10px;
-`;
-
 const Modal = styled.div`
-  display: ${({ show }) => (show ? "block" : "none")};
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -65,21 +64,26 @@ const Modal = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1000;
+
+  &.show {
+    display: flex;
+  }
 `;
 
 const ModalContent = styled.div`
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
-  max-width: 800px;
-  width: 90%;
+  max-width: 90%;
+  max-height: 90%;
   text-align: center;
 `;
 
 const ModalImage = styled.img`
   width: 100%;
   height: auto;
-  margin-bottom: 20px;
+  max-height: 80vh;
+  border-radius: 8px;
 `;
 
 const CloseButton = styled.button`
@@ -89,6 +93,7 @@ const CloseButton = styled.button`
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 20px;
 
   &:hover {
     background-color: #76a024;
@@ -96,25 +101,63 @@ const CloseButton = styled.button`
 `;
 
 export default function Galeria() {
-  const [albums, setAlbums] = useState([]);
-  const [selectedAlbum, setSelectedAlbum] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [selectedImage, setSelectedImage] = useState("");
 
-  useEffect(() => {
-    // Fetch albums from the backend
-    fetch("/api/albums")
-      .then(response => response.json())
-      .then(data => setAlbums(data));
-  }, []);
+  const images = [
+    "/imagens/galeria1.jpg",
+    "/imagens/galeria2.jpg",
+    "/imagens/galeria3.jpg",
+    "/imagens/galeria4.jpg",
+    "/imagens/galeria5.jpg",
+    "/imagens/galeria6.jpg",
+    "/imagens/galeria7.jpg",
+    "/imagens/galeria8.jpg",
+    "/imagens/galeria9.jpg",
+    "/imagens/galeria10.jpg",
+    "/imagens/galeria11.jpg",
+    "/imagens/galeria12.jpg",
+    "/imagens/galeria13.jpg",
+    "/imagens/galeria14.jpg",
+    "/imagens/galeria15.jpg",
+    "/imagens/galeria16.jpg",
+    "/imagens/galeria17.jpg",
+    "/imagens/galeria18.jpg",
+    "/imagens/galeria19.jpg",
+    "/imagens/galeria20.jpg",
+    "/imagens/galeria21.jpg",
+    "/imagens/galeria22.jpg",
+    "/imagens/galeria23.jpg",
+    "/imagens/galeria24.jpg",
+    "/imagens/galeria25.jpg",
+    "/imagens/galeria26.jpg",
+    "/imagens/galeria27.jpg",
+    "/imagens/galeria28.jpg",
+    "/imagens/galeria29.jpg",
+    "/imagens/galeria30.jpg",
+    "/imagens/galeria31.jpg",
+    "/imagens/galeria32.jpg",
+    "/imagens/galeria33.jpg",
+    "/imagens/galeria34.jpg",
+    "/imagens/galeria35.jpg",
+    "/imagens/galeria36.jpg",
+    "/imagens/galeria37.jpg",
+    "/imagens/galeria38.jpg",
+    "/imagens/galeria39.jpg",
+    "/imagens/galeria40.jpg",
+    "/imagens/galeria41.jpg",
+    "/imagens/galeria42.jpg",
+  ];
 
-  const openAlbum = (album) => {
-    setSelectedAlbum(album);
+  const openModal = (src: SetStateAction<string>) => {
+    setSelectedImage(src);
     setShowModal(true);
   };
+  
 
   const closeModal = () => {
     setShowModal(false);
-    setSelectedAlbum(null);
+    setSelectedImage("");
   };
 
   return (
@@ -122,26 +165,20 @@ export default function Galeria() {
       <Menu />
       <Section>
         <Title>Galeria de Eventos</Title>
-        <AlbumContainer>
-          {albums.map((album) => (
-            <AlbumCard key={album.id} onClick={() => openAlbum(album)}>
-              <AlbumImage src={album.coverImage} alt={album.title} />
-              <AlbumTitle>{album.title}</AlbumTitle>
-            </AlbumCard>
+        <GalleryContainer>
+          {images.map((src, index) => (
+            <GalleryImageContainer key={index} onClick={() => openModal(src)}>
+              <GalleryImage src={src} alt={`Galeria ${index + 1}`} />
+            </GalleryImageContainer>
           ))}
-        </AlbumContainer>
+        </GalleryContainer>
       </Section>
-      {selectedAlbum && (
-        <Modal show={showModal}>
-          <ModalContent>
-            <h2>{selectedAlbum.title}</h2>
-            {selectedAlbum.images.map((image, index) => (
-              <ModalImage key={index} src={image.url} alt={`Imagem ${index + 1}`} />
-            ))}
-            <CloseButton onClick={closeModal}>Fechar</CloseButton>
-          </ModalContent>
-        </Modal>
-      )}
+      <Modal className={showModal ? "show" : ""}>
+        <ModalContent>
+          <ModalImage src={selectedImage} alt="Imagem ampliada" />
+          <CloseButton onClick={closeModal}>Fechar</CloseButton>
+        </ModalContent>
+      </Modal>
       <Footer />
     </PageContainer>
   );

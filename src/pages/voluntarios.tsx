@@ -1,8 +1,10 @@
 'use client'
+import { useEffect, useState } from 'react';
 import { Menu } from "@/components/Menu";
 import styled, { keyframes } from "styled-components";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "@/components/Footer";
+import axios from 'axios';
 
 const PageContainer = styled.div`
   width: 100%;
@@ -125,6 +127,18 @@ const AttentionCard = styled.div`
 `;
 
 export default function Voluntarios() {
+  const [voluntario, setCargos] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/api/voluntarios')
+      .then(response => {
+        setCargos(response.data.data);
+      })
+      .catch(error => {
+        console.error('Erro ao buscar cargos:', error);
+      });
+  }, []);
+
   return (
     <PageContainer>
       <Menu />
@@ -147,12 +161,9 @@ export default function Voluntarios() {
             <Subtitle>Atualmente, temos necessidade de voluntários nas seguintes áreas:</Subtitle>
             <VolunteerCard>
               <VolunteerList>
-                <VolunteerListItem>Motorista</VolunteerListItem>
-                <VolunteerListItem>Cozinheiro</VolunteerListItem>
-                <VolunteerListItem>Professor de Matemática</VolunteerListItem>
-                <VolunteerListItem>Professor de Artes</VolunteerListItem>
-                <VolunteerListItem>Assistente Social</VolunteerListItem>
-                <VolunteerListItem>Ajudante de Limpeza</VolunteerListItem>
+                {voluntario.map((voluntario, index) => (
+                  <VolunteerListItem key={index}>{voluntario.voluntario}</VolunteerListItem>
+                ))}
               </VolunteerList>
             </VolunteerCard>
           </TextContainer>
