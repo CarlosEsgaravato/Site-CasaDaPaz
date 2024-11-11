@@ -17,11 +17,17 @@ const PageContainer = styled.div`
 
 const ContentContainer = styled.div`
   max-width: 800px;
-  background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 40px;
   border-radius: 8px;
   margin: 20px;
   text-align: center;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+    margin: 10px;
+  }
 `;
 
 const Title = styled.h2`
@@ -40,6 +46,12 @@ const CardContainer = styled.div`
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Card = styled.div`
@@ -48,6 +60,11 @@ const Card = styled.div`
   border-radius: 8px;
   width: 45%;
   text-align: center;
+  margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
 `;
 
 const CardTitle = styled.h3`

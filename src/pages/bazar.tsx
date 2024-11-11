@@ -17,6 +17,10 @@ const Section = styled.div`
   padding: 40px 6%;
   display: flex;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    padding: 20px 3%;
+  }
 `;
 
 const Content = styled.div`
@@ -26,6 +30,10 @@ const Content = styled.div`
   border-radius: 8px;
   margin: 20px;
   text-align: left;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 `;
 
 const Title = styled.h2`

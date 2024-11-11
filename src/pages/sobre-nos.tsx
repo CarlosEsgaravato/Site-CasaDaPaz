@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 const PageContainer = styled.div`
   width: 100%;
   min-height: 100vh;
-  background-color: #f0f0f0; /* Fundo mais claro */
+  background-color: #f0f0f0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,15 +17,22 @@ const Section = styled.div`
   padding: 40px 6%;
   display: flex;
   justify-content: center;
+  width: 100%;
 `;
 
 const Content = styled.div`
   max-width: 800px;
-  background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 40px;
   border-radius: 8px;
   margin: 20px;
   text-align: justify;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+    margin: 10px;
+  }
 `;
 
 const Title = styled.h2`
@@ -67,6 +74,12 @@ const AwardSection = styled.div`
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
 `;
 
 const AwardImage = styled.img`
@@ -74,12 +87,21 @@ const AwardImage = styled.img`
   height: auto;
   border-radius: 8px;
   margin-right: 20px;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 `;
 
 const AwardText = styled.p`
   color: #333;
   line-height: 1.6;
   text-align: justify;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 export default function SobreNos() {

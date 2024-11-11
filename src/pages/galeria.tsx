@@ -18,6 +18,10 @@ const Section = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 20px 3%;
+  }
 `;
 
 const Title = styled.h2`
@@ -32,11 +36,15 @@ const GalleryContainer = styled.div`
   gap: 20px;
   width: 100%;
   max-width: 1200px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
 `;
 
 const GalleryImageContainer = styled.div`
   width: 100%;
-  padding-top: 75%; /* Aspect ratio 4:3 */
+  padding-top: 75%;
   position: relative;
   border-radius: 8px;
   overflow: hidden;
@@ -153,7 +161,6 @@ export default function Galeria() {
     setSelectedImage(src);
     setShowModal(true);
   };
-  
 
   const closeModal = () => {
     setShowModal(false);

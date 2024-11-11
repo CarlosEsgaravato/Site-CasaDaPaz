@@ -45,7 +45,7 @@ export const Menu = () => {
             </NavbarLinkContainer>
           </CenterContainer>
           <RightContainer>
-            <DonationButton href={"/doacoes"}>Seja um Doador</DonationButton>
+            <DonationButton href={"/doacoes"}>Como Doar?</DonationButton>
           </RightContainer>
         </NavbarInnerContainer>
       </NavbarContainer>

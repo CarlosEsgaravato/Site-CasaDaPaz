@@ -9,7 +9,7 @@ import axios from 'axios';
 const PageContainer = styled.div`
   width: 100%;
   min-height: 100vh;
-  background-color: #f0f0f0; /* Fundo mais claro */
+  background-color: #f0f0f0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,16 +19,24 @@ const Section = styled.div`
   padding: 40px 6%;
   display: flex;
   justify-content: center;
+  width: 100%;
 `;
 
 const GridContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  max-width: 1200px; /* Aumentando a largura máxima */
+  max-width: 1200px;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 40px;
   border-radius: 8px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -37,18 +45,28 @@ const ImageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 `;
 
 const VolunteerImage = styled.img`
   width: 100%;
   height: auto;
   border-radius: 8px;
-  margin-bottom: 20px; /* Espaço entre a imagem e o botão */
+  margin-bottom: 20px;
 `;
 
 const TextContainer = styled.div`
   flex: 1;
   text-align: justify;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const Title = styled.h2`
@@ -77,8 +95,8 @@ const VolunteerCard = styled.div`
 `;
 
 const VolunteerList = styled.ul`
-  list-style-type: disc; /* Bolinhas atrás dos itens */
-  padding-left: 20px; /* Espaço para os marcadores */
+  list-style-type: disc;
+  padding-left: 20px;
 `;
 
 const VolunteerListItem = styled.li`
@@ -105,7 +123,7 @@ const ContactButton = styled.a`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 20px; /* Espaço abaixo do botão */
+  margin-bottom: 20px;
 `;
 
 const shake = keyframes`
@@ -116,12 +134,12 @@ const shake = keyframes`
 `;
 
 const AttentionCard = styled.div`
-  background-color: #f5f5f5; /* Fundo cinza mais claro */
-  color: #89b72d; /* Texto verde */
+  background-color: #f5f5f5;
+  color: #89b72d;
   padding: 20px;
   border-radius: 8px;
   text-align: center;
-  animation: ${shake} 2s ease-in-out infinite; /* Movimento mais lento */
+  animation: ${shake} 2s ease-in-out infinite;
   font-weight: bold;
   text-transform: uppercase;
 `;

@@ -16,11 +16,21 @@ const Section = styled.div`
   padding: 40px 6%;
   display: flex;
   justify-content: center;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    padding: 20px 3%;
+  }
 `;
 
 const Content = styled.div`
   max-width: 800px;
   text-align: left;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 `;
 
 const Title = styled.h2`
@@ -62,7 +72,7 @@ const QrCodeContainer = styled.div`
 `;
 
 const QrCodeImage = styled.img`
-  max-width: 200px;
+  max-width: 100%;
   height: auto;
   border-radius: 8px;
 `;
@@ -88,17 +98,27 @@ const ImageContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 40px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const DonationImage = styled.img`
-  max-width: 400px;
+  max-width: 100%;
   height: auto;
   border-radius: 8px;
   margin-right: 20px;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 `;
 
 const ImageTextContainer = styled.div`
-  max-width: 400px;
+  max-width: 100%;
 `;
 
 const ImageText = styled.p`
