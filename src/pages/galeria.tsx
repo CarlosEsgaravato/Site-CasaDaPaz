@@ -1,8 +1,9 @@
-import { SetStateAction, useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu } from "@/components/Menu";
 import styled from "styled-components";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "@/components/Footer";
+import axios from 'axios';
 
 const PageContainer = styled.div`
   width: 100%;
@@ -111,53 +112,23 @@ const CloseButton = styled.button`
 export default function Galeria() {
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
+  const [images, setImages] = useState<string[]>([]);
 
-  const images = [
-    "/imagens/galeria1.jpg",
-    "/imagens/galeria2.jpg",
-    "/imagens/galeria3.jpg",
-    "/imagens/galeria4.jpg",
-    "/imagens/galeria5.jpg",
-    "/imagens/galeria6.jpg",
-    "/imagens/galeria7.jpg",
-    "/imagens/galeria8.jpg",
-    "/imagens/galeria9.jpg",
-    "/imagens/galeria10.jpg",
-    "/imagens/galeria11.jpg",
-    "/imagens/galeria12.jpg",
-    "/imagens/galeria13.jpg",
-    "/imagens/galeria14.jpg",
-    "/imagens/galeria15.jpg",
-    "/imagens/galeria16.jpg",
-    "/imagens/galeria17.jpg",
-    "/imagens/galeria18.jpg",
-    "/imagens/galeria19.jpg",
-    "/imagens/galeria20.jpg",
-    "/imagens/galeria21.jpg",
-    "/imagens/galeria22.jpg",
-    "/imagens/galeria23.jpg",
-    "/imagens/galeria24.jpg",
-    "/imagens/galeria25.jpg",
-    "/imagens/galeria26.jpg",
-    "/imagens/galeria27.jpg",
-    "/imagens/galeria28.jpg",
-    "/imagens/galeria29.jpg",
-    "/imagens/galeria30.jpg",
-    "/imagens/galeria31.jpg",
-    "/imagens/galeria32.jpg",
-    "/imagens/galeria33.jpg",
-    "/imagens/galeria34.jpg",
-    "/imagens/galeria35.jpg",
-    "/imagens/galeria36.jpg",
-    "/imagens/galeria37.jpg",
-    "/imagens/galeria38.jpg",
-    "/imagens/galeria39.jpg",
-    "/imagens/galeria40.jpg",
-    "/imagens/galeria41.jpg",
-    "/imagens/galeria42.jpg",
-  ];
+  useEffect(() => {
+    const loadImages = async () => {
+      try {
+        const response = await axios.get('http://localhost:8000/api/images');
+        const imageUrls = response.data.map((image: { filename: string }) => `http://localhost:8000/storage/images/${image.filename}`);
+        setImages(imageUrls);
+      } catch (error) {
+        console.error('Erro ao carregar imagens:', error);
+      }
+    };
 
-  const openModal = (src: SetStateAction<string>) => {
+    loadImages();
+  }, []);
+
+  const openModal = (src: string) => {
     setSelectedImage(src);
     setShowModal(true);
   };
